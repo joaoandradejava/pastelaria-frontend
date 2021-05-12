@@ -1,0 +1,24 @@
+.produto-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 80%;
+  padding: 10px 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.produto-item img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+h3 {
+  font-weight: bold;
+  margin: 0;
+}
+
+.botao-carrinho{
+  background-color: greenyellow;
+}

@@ -1,0 +1,10 @@
+<div class="produto-item">
+  <div>
+    <img [src]="getImagem()" alt="">
+  </div>
+  <div>
+      <h3>{{produtoModel?.nome}} <span style="color: greenyellow;">{{produtoModel?.preco | currency}}</span></h3>
+      <p>{{produtoModel?.descricao}}</p>
+      <button class="botao-carrinho" mat-raised-button color="primary">Adicionar no carrinho</button>
+  </div>
+</div>

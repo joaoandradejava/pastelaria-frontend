@@ -1,0 +1,14 @@
+<div class="card-produto">
+  <div>
+    <img [src]="pegarAvatarUrl()" alt="">
+  </div>
+  <div class="card-about">
+    <div class="card-preco-nome">
+      <h3>{{produto?.nome}} <span style="color: greenyellow;">{{produto?.preco | currency}}</span></h3>
+      <p>{{produto?.descricao}}</p>
+    </div>
+    <div class="card-button-adicionar-carrinho">
+      <button style="width: 100%;" mat-raised-button color="primary"> Adicionar ao carrinho</button>
+    </div>
+  </div>
+</div>
