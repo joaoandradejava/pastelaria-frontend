@@ -1,0 +1,65 @@
+<div class="editar-dados">
+  <h1 style="text-align: center;">Seus dados</h1>
+  <form class="example-form" [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome <span class="obrigatorio">*</span></mat-label>
+      <input type="text" formControlName="nome" matInput [errorStateMatcher]="matcher" placeholder="Informe seu nome">
+      <mat-error *ngIf="formGroup.get('nome').getError('required')">
+        {{getMensagemCampoObrigatorio('Nome')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('nome').getError('minlenght') || formGroup.get('nome').getError('maxlenght')">
+        {{getMensagemCampoTamanhoCaracteres('Nome', 3, 255)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" readonly [value]="clienteFullModel?.email" matInput [errorStateMatcher]="matcher"
+        placeholder="Informe seu Email">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Cpf</mat-label>
+      <input type="text" mask="000.000.000-00" formControlName="cpf" matInput [errorStateMatcher]="matcher"
+        placeholder="000.000.000-00">
+      <mat-error *ngIf="formGroup.get('cpf').getError('minlenght') || formGroup.get('cpf').getError('maxlenght')">
+        {{getMensagemCampoTamanhoCaracteres('Cpf', 0, 11)}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('cpf').getError('mask')">
+        {{getEmailOuCpfInvalido('Cpf')}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefone <span class="obrigatorio">*</span></mat-label>
+      <input type="text" mask="(00) 0 0000-0000" formControlName="telefone" matInput [errorStateMatcher]="matcher"
+        placeholder="(00) 0 0000-0000">
+      <mat-error *ngIf="formGroup.get('telefone').getError('required')">
+        {{getMensagemCampoObrigatorio('Telefone')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('telefone').getError('mask')">
+        {{getEmailOuCpfInvalido('Telefone')}}
+      </mat-error>
+
+      <mat-error
+        *ngIf="formGroup.get('telefone').getError('minlenght') || formGroup.get('telefone').getError('maxlenght')">
+        {{getMensagemCampoTamanhoCaracteres('Telefone', 0, 11)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Celular</mat-label>
+      <input type="text" mask="(00) 0 0000-0000" formControlName="celular" matInput [errorStateMatcher]="matcher"
+        placeholder="(00) 0 0000-0000">
+      <mat-error
+        *ngIf="formGroup.get('celular').getError('minlenght') || formGroup.get('celular').getError('maxlenght')">
+        {{getMensagemCampoTamanhoCaracteres('Celular', 0, 11)}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('celular').getError('mask')">
+        {{getEmailOuCpfInvalido('Celular')}}
+      </mat-error>
+
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="warn" (click)="atualizar()" class="btn-confirmar"
+        [disabled]="formGroup.invalid">Confirmar</button>
+    </div>
+  </form>
+</div>

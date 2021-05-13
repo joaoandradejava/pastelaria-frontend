@@ -10,4 +10,12 @@ export class Backend {
   public static get baseProduto(): string {
     return this.baseUrl + 'produtos';
   }
+
+  public static get baseLogin(): string {
+    return this.baseUrl + 'login';
+  }
+
+  public static get baseCliente(): string {
+    return this.baseUrl + 'clientes';
+  }
 }

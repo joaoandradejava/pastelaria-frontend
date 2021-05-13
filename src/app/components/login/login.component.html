@@ -1,1 +1,17 @@
-<p>login works!</p>
+<div class="login-cliente">
+  <h1>Faça seu login</h1>
+  <form class="example-form" [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="Informe seu Email">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Senha</mat-label>
+      <input type="password" formControlName="senha" matInput placeholder="Informe sua senha">
+    </mat-form-field>
+    <div>
+      <button mat-raised-button class="btn-entrar" (click)="realizarLogin()" [disabled]="formGroup.invalid"
+        color="primary">Entrar</button>
+    </div>
+  </form>
+</div>

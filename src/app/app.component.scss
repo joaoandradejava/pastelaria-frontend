@@ -1,0 +1,40 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr 0.1fr;
+  grid-template-areas:
+    "header"
+    "conteudo"
+    "footer";
+  height: 100vh;
+}
+
+.header {
+  grid-area: header;
+}
+
+.conteudo {
+  grid-area: conteudo;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+::ng-deep .success {
+  background-color: greenyellow;
+  color: white;
+}
+
+::ng-deep .error {
+  background-color: rgb(255, 47, 47);
+  color: white;
+}
+
+::ng-deep .error button {
+  color: white;
+}
+
+::ng-deep .success button {
+  color: white;
+}

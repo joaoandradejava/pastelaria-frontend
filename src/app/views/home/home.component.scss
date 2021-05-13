@@ -1,21 +1,34 @@
+.home {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: auto;
+  grid-template-areas: "categoria card";
+  padding: 5px 10px;
+}
+
 .card-categoria {
+  grid-area: categoria;
   background-color: rgb(253, 253, 253);
   border: 1px solid gainsboro;
   box-shadow: 1px 1px 1px black;
   margin-top: 10px;
+  padding: 20px 10px;
+  font-size: 1.4em;
 }
 
 .card-categoria ul {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   list-style: none;
+}
+.card-categoria ul li {
+  margin: 5px;
 }
 .card-categoria li a {
   text-decoration: none;
-  color: black;
-  font-weight: bold;
+  color: #3e3e3e;
 }
 
 .card-categoria li a:hover {
@@ -29,6 +42,8 @@
 }
 
 .card-produtos {
+  grid-area: card;
+
   background-color: rgb(250, 250, 250);
   border: 1px solid black;
   box-shadow: 1px 1px 1px black;
@@ -42,3 +57,16 @@
   padding: 10px;
 }
 
+@media only screen and (max-width: 920px) {
+  .home {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr auto;
+    grid-template-areas:
+      "categoria"
+      "card";
+  }
+  .card-categoria ul {
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+}

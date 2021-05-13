@@ -1,10 +1,10 @@
-.login-cliente{
+.editar-dados {
+  width: 40%;
+  margin: 0 auto;
   padding: 15px 10px;
 }
 
 .example-form {
-  min-width: 150px;
-  max-width: 500px;
   width: 100%;
 }
 
@@ -12,6 +12,10 @@
   width: 100%;
 }
 
-.btn-entrar{
+.btn-confirmar {
   width: 100%;
+}
+
+.obrigatorio {
+  color: red;
 }

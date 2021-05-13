@@ -1,1 +1,71 @@
-<p>cadastro-cliente works!</p>
+<div class="cadastro-cliente">
+  <h1>Cadastre-se</h1>
+  <form class="example-form" [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome</mat-label>
+      <input type="text" formControlName="nome" matInput [errorStateMatcher]="matcher" placeholder="Informe seu nome">
+      <mat-error *ngIf="formGroup.get('nome').getError('required')">
+        {{getMensagemCampoObrigatorio('Nome')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('nome').getError('minlength') || formGroup.get('nome').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Nome', 3, 255)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="email" formControlName="email" matInput [errorStateMatcher]="matcher" placeholder="john@gmail.com">
+      <mat-error *ngIf="formGroup.get('email').getError('required')">
+        {{getMensagemCampoObrigatorio('Email')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('email').getError('email')">
+        {{getEmailOuCpfInvalido('Email')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('email').getError('minlength') || formGroup.get('email').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Email', 0, 255)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Senha</mat-label>
+      <input type="password" formControlName="senha" matInput [errorStateMatcher]="matcher"
+        placeholder="Informe sua senha">
+      <mat-error *ngIf="formGroup.get('senha').getError('required')">
+        {{getMensagemCampoObrigatorio('Senha')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('senha').getError('minlength') || formGroup.get('senha').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Senha', 0, 255)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Confirmar senha</mat-label>
+      <input type="password" formControlName="confirmacaoSenha" matInput [errorStateMatcher]="matcher"
+        placeholder="Confirme sua senha">
+      <mat-error *ngIf="formGroup.get('confirmacaoSenha').getError('required')">
+        {{getMensagemCampoObrigatorio('Confirmacao da Senha')}}
+      </mat-error>
+      <mat-error
+        *ngIf="formGroup.get('confirmacaoSenha').getError('minlength') || formGroup.get('confirmacaoSenha').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Confirmação da Senha', 0, 255)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefone</mat-label>
+      <input type="text" mask="(00) 0 0000-0000" formControlName="telefone" matInput [errorStateMatcher]="matcher"
+        placeholder="(00) 0 0000-0000">
+      <mat-error *ngIf="formGroup.get('telefone').getError('required')">
+        {{getMensagemCampoObrigatorio('Telefone')}}
+      </mat-error>
+      <mat-error
+        *ngIf="formGroup.get('telefone').getError('minlength') || formGroup.get('telefone').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Telefone', 0, 11)}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('telefone').getError('mask')">
+        {{getEmailOuCpfInvalido('Telefone')}}
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button class="btn-cadastrar" (click)="cadastrar()" [disabled]="formGroup.invalid"
+        color="primary">Cadastrar</button>
+    </div>
+  </form>
+</div>
