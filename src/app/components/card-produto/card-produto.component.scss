@@ -6,6 +6,7 @@
   cursor: pointer;
   margin: 10px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.397);
+  color: var(--cor-font-default);
 }
 
 .card-produto img {
@@ -30,7 +31,7 @@ h3 {
 }
 
 .card-button-adicionar-carrinho button {
-  background-color: greenyellow;
+  background-color: var(--background-color-botao-carrinho);
   font-weight: bold;
 }
 
@@ -39,4 +40,3 @@ h3 {
   padding: 10px 5px;
   font-size: 1vw;
 }
-

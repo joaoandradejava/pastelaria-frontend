@@ -4,13 +4,14 @@
   align-items: center;
   flex-flow: row wrap;
   padding: 10px 20px;
-  border-bottom: 1px solid rgba(82, 82, 82, 0.466);
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.459);
+  border-bottom: 1px solid rgba(43, 43, 43, 0.466);
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.459);
   margin-bottom: 10px;
 }
 
 #logo h1 {
   font-size: 30px;
+  color: var(--cor-font-default);
 }
 
 #logo h1:hover {
@@ -31,11 +32,11 @@
 
 .menu-bar a {
   text-decoration: none;
-  color: black;
+  color: var(--cor-font-default);
   font-size: 1.2em;
 }
 
 .menu-bar a:hover {
-  color: blue;
+  color: var(--cor-link-hover);
   cursor: pointer;
 }

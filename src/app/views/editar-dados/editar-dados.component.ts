@@ -1,3 +1,4 @@
+import { MudarSenhaComponent } from './../../components/mudar-senha/mudar-senha.component';
 import { ClienteUpdateInput } from './../../shared/models/cliente-update-input';
 import { SnackbarService } from './../../shared/services/snackbar.service';
 import { ClienteFullModel } from './../../shared/models/cliente-full-model';
@@ -14,6 +15,7 @@ import {
 } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AutenticacaoService } from 'src/app/shared/services/autenticacao.service';
+import { MatDialog } from '@angular/material/dialog';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -44,7 +46,8 @@ export class EditarDadosComponent implements OnInit {
     private formBuilder: FormBuilder,
     private clienteService: ClienteService,
     private autenticacaoService: AutenticacaoService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -104,10 +107,14 @@ export class EditarDadosComponent implements OnInit {
     );
   }
 
+  public abrirModalMudarSenha(): void {
+    const dialogRef = this.dialog.open(MudarSenhaComponent);
+  }
+
   public atualizar(): void {
     if (this.formGroup.valid) {
-      if(String(this.formGroup.get('cpf').value).trim() === ''){
-        this.formGroup.get('cpf').setValue(undefined)
+      if (String(this.formGroup.get('cpf').value).trim() === '') {
+        this.formGroup.get('cpf').setValue(undefined);
       }
       this.clienteService
         .atualizar(this.formGroup.value, this.clienteFullModel.id)

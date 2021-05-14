@@ -1,0 +1,33 @@
+<div class="mudar-senha">
+  <form class="example-form" [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Senha atual <span class="obrigatorio">*</span></mat-label>
+      <input type="text" formControlName="senhaAtual" matInput [errorStateMatcher]="matcher"
+        placeholder="Informe a sua senha atual">
+      <mat-error *ngIf="formGroup.get('senhaAtual').getError('required')">
+        {{getMensagemCampoObrigatorio('Senha Atual')}}
+      </mat-error>
+      <mat-error
+        *ngIf="formGroup.get('senhaAtual').getError('minlength') || formGroup.get('senhaAtual').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Senha Atual', 0 , 255)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Nova Senha <span class="obrigatorio">*</span></mat-label>
+      <input type="text" formControlName="novaSenha" matInput [errorStateMatcher]="matcher"
+        placeholder="Informe a sua nova senha">
+      <mat-error *ngIf="formGroup.get('novaSenha').getError('required')">
+        {{getMensagemCampoObrigatorio('Nova Senha')}}
+      </mat-error>
+      <mat-error
+        *ngIf="formGroup.get('novaSenha').getError('minlength') || formGroup.get('novaSenha').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Nova Senha', 0 , 255)}}
+      </mat-error>
+    </mat-form-field>
+    <div>
+      <button class="btn-mudar-senha" [disabled]="formGroup.invalid" (click)="mudarSenha()" mat-raised-button
+        color="warn">Mudar Senha</button>
+    </div>
+
+  </form>
+</div>

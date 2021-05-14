@@ -1,3 +1,5 @@
+import { EsqueciSenhaInput } from './../models/esqueci-senha-input';
+import { MudarSenhaInput } from './../models/mudar-senha-input';
 import { ClienteUpdateInput } from './../models/cliente-update-input';
 import { Backend } from './../utils/backend';
 import { ClienteCreateInput } from './../models/cliente-create-input';
@@ -24,5 +26,16 @@ export class ClienteService {
     id: number
   ): Observable<any> {
     return this.http.put(Backend.baseCliente + `/${id}`, clienteUpdateInput);
+  }
+
+  public mudarSenha(mudarSenhaInput: MudarSenhaInput): Observable<any> {
+    return this.http.put(Backend.baseCliente + `/senha`, mudarSenhaInput);
+  }
+
+  public esqueciSenha(esqueciSenhaInput: EsqueciSenhaInput): Observable<any> {
+    return this.http.put(
+      Backend.baseCliente + `/esqueci-senha`,
+      esqueciSenhaInput
+    );
   }
 }

@@ -32,12 +32,12 @@
 }
 
 .card-categoria li a:hover {
-  color: rgb(255, 46, 46);
+  color: var(--cor-link-hover);
   cursor: pointer;
 }
 
 .card-categoria li .selecionado {
-  color: red;
+  color: var(--cor-link-hover);
   text-decoration: underline;
 }
 

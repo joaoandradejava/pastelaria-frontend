@@ -31,6 +31,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatMenuModule } from '@angular/material/menu';
+import { MudarSenhaComponent } from './components/mudar-senha/mudar-senha.component';
+import { EsqueceuSenhaComponent } from './components/esqueceu-senha/esqueceu-senha.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -44,6 +46,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ProdutoItemComponent,
     CadastroClienteComponent,
     LoginComponent,
+    MudarSenhaComponent,
+    EsqueceuSenhaComponent,
   ],
   imports: [
     BrowserModule,

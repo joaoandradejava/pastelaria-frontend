@@ -1,0 +1,24 @@
+<div class="esqueceu-senha">
+  <h2 class="texto-centralizado">Esqueci a senha </h2>
+  <p>Digite seu e-mail aqui em baixo que nós enviaremos uma nova senha de acesso ao seu endereço de e-mail</p>
+  <form class="example-form" [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email<span class="obrigatorio">*</span></mat-label>
+      <input type="email" formControlName="email" matInput [errorStateMatcher]="matcher"
+        placeholder="Informe o seu email">
+      <mat-error *ngIf="formGroup.get('email').getError('required')">
+        {{getMensagemCampoObrigatorio('Email')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('email').getError('minlength') || formGroup.get('email').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Email', 0 , 255)}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('email').getError('email')">
+        {{getEmailOuCpfInvalido('Email')}}
+      </mat-error>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button style="width: 100%;" (click)="enviarNovaSenha()" [disabled]="formGroup.invalid"
+        color="primary">Enviar Nova Senha</button>
+    </div>
+  </form>
+</div>

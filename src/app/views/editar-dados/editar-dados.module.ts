@@ -7,6 +7,8 @@ import { EditarDadosComponent } from './editar-dados.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { MatDialogModule } from '@angular/material/dialog';
+
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
@@ -18,6 +20,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ReactiveFormsModule,
     MatButtonModule,
     NgxMaskModule.forRoot(),
+    MatDialogModule,
   ],
 })
 export class EditarDadosModule {}

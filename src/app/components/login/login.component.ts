@@ -1,9 +1,10 @@
+import { EsqueceuSenhaComponent } from './../esqueceu-senha/esqueceu-senha.component';
 import { ClienteAutenticado } from './../../shared/models/cliente-autenticado';
 import { SnackbarService } from './../../shared/services/snackbar.service';
 import { LoginService } from './../../shared/services/login.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
     public dialogRef: MatDialogRef<LoginComponent>,
     private formBuilder: FormBuilder,
     private loginService: LoginService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +42,10 @@ export class LoginComponent implements OnInit {
         ],
       ],
     });
+  }
+
+  public openDialogEsqueceuSenha(): void {
+    const dialogRef = this.dialog.open(EsqueceuSenhaComponent);
   }
 
   public realizarLogin(): void {
