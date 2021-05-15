@@ -1,6 +1,6 @@
 import { ProdutoService } from './../../shared/services/produto.service';
 import { ProdutoModel } from './../../shared/models/produto-model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,6 +17,7 @@ export class ProdutoItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.route.params.subscribe((data) => {
       this.produtoService.buscarProdutoPorId(data.id).subscribe((data) => {
         this.produtoModel = data;

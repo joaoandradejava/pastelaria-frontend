@@ -33,6 +33,10 @@ export class HeaderComponent implements OnInit {
     return this.autenticacaoService.isAutenticado();
   }
 
+  public isAdmin(): boolean {
+    return this.autenticacaoService.isAdmin();
+  }
+
   openDialogCadastroCliente(): void {
     const dialogRef = this.dialog.open(CadastroClienteComponent);
   }

@@ -1,0 +1,39 @@
+<div class="produto-acao-avancada">
+  <div>
+    <h1 class="texto-centralizado">Detalhe do produto</h1>
+    <div>
+      <span>Código: {{produtoFullModel?.id}}</span>
+    </div>
+    <div>
+      <span>Nome: {{produtoFullModel?.nome}}</span>
+    </div>
+
+    <div>
+      <span>Preço: {{produtoFullModel?.preco | currency}}</span>
+    </div>
+    <div>
+      <span>Descrição: {{produtoFullModel?.descricao}}</span>
+    </div>
+    <div>
+      <span>Desconto: {{produtoFullModel?.desconto}}%</span>
+    </div>
+    <div>
+      <span>Tem desconto?: {{produtoFullModel?.isTemDesconto? 'Sim' : 'Não'}}</span>
+    </div>
+    <div>
+      <span>Tem estoque?: {{produtoFullModel?.isTemEstoque? 'Sim' : 'Não'}}</span>
+    </div>
+    <div>
+      <span>Categoria: {{produtoFullModel?.categoria.nome}}</span>
+    </div>
+  </div>
+
+  <div>
+    <h2>Ações</h2>
+    <div>
+      <button mat-raised-button [color]="produtoFullModel?.isTemEstoque? 'warn': 'primary'"
+        (click)="acaoDoEstoque()">{{produtoFullModel?.isTemEstoque? 'Tirar do estoque': 'Colocar no estoque'}}</button>
+    </div>
+  </div>
+
+</div>

@@ -2,7 +2,7 @@ import { AutenticadoGuard } from './shared/guards/autenticado.guard';
 import { ProdutoItemComponent } from './views/produto-item/produto-item.component';
 import { HomeComponent } from './views/home/home.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +14,12 @@ const routes: Routes = [
       import('./views/editar-dados/editar-dados.module').then(
         (m) => m.EditarDadosModule
       ),
+    canActivate: [AutenticadoGuard],
+  },
+  {
+    path: 'produtos',
+    loadChildren: () =>
+      import('./views/produtos/produtos.module').then((m) => m.ProdutosModule),
     canActivate: [AutenticadoGuard],
   },
 ];

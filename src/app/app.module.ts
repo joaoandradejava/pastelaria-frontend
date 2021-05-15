@@ -1,3 +1,4 @@
+import { AdministradorGuard } from './shared/guards/administrador.guard';
 import { AutenticadoGuard } from './shared/guards/autenticado.guard';
 import { AutenticacaoService } from './shared/services/autenticacao.service';
 import { TokenJwtInterceptor } from './shared/interceptors/token-jwt.interceptor';
@@ -48,6 +49,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     LoginComponent,
     MudarSenhaComponent,
     EsqueceuSenhaComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -72,6 +74,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     SnackbarService,
     AutenticacaoService,
     AutenticadoGuard,
+    AdministradorGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenJwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

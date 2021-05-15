@@ -1,0 +1,51 @@
+<div class="produto-input">
+  <form class="example-form" [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome</mat-label>
+      <input type="text" matInput formControlName="nome" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="formGroup.get('nome').getError('required')">
+        {{getMensagemCampoObrigatorio('Nome')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('nome').getError('minlength') || formGroup.get('nome').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Nome', 0, 255)}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Preço</mat-label>
+      <input type="number" matInput formControlName="preco" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="formGroup.get('preco').getError('required')">
+        {{getMensagemCampoObrigatorio('Preço')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('preco').getError('min')">
+        {{getMensagemValorMinimo('Preço', 0.1)}}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descrição</mat-label>
+      <input type="text" matInput formControlName="descricao" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="formGroup.get('descricao').getError('required')">
+        {{getMensagemCampoObrigatorio('Descrição')}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width" formGroupName="categoria">
+      <mat-label>Categoria</mat-label>
+      <select matNativeControl required formControlName="id">
+        <option [value]="categoria.id" *ngFor="let categoria of categorias">{{categoria.nome}}</option>
+      </select>
+      <mat-error *ngIf="formGroup.get('categoria.id').getError('required')">
+        {{getMensagemCampoObrigatorio('Categoria')}}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="botoes">
+      <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+      <button mat-raised-button (click)="limpar()">Limpar</button>
+      <button mat-raised-button color="primary" (click)="salvar()" [disabled]="formGroup.invalid">{{isAtualizar()?
+        'Atualizar' :
+        'Cadastrar'}}</button>
+    </div>
+
+  </form>
+</div>

@@ -1,11 +1,20 @@
 import { ClienteAutenticado } from './../models/cliente-autenticado';
 import { Injectable } from '@angular/core';
+import { iif } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AutenticacaoService {
   constructor() {}
+
+  public isAdmin(): boolean {
+    if (this.isAutenticado()) {
+      return this.getClienteAutenticado().isAdmin;
+    }
+
+    return false;
+  }
 
   public isAutenticado(): boolean {
     return !(

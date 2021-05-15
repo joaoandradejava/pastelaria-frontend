@@ -14,4 +14,8 @@ export class ValidadorFormulario {
   public static getEmailOuCpfInvalido(label: string): string {
     return `${label} inválido!`;
   }
+
+  public static getMensagemValorMinimo(label: string, valorMinimo): string {
+    return `${label} tem que ter um valor minimo de  ${valorMinimo}!`;
+  }
 }
