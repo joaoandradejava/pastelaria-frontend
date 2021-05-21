@@ -43,9 +43,14 @@ export class ProdutoService {
     return this.http.delete(Backend.baseProduto + `/${id}`);
   }
 
-  public buscarTodos(pagina: number, tamanho: number, nome: string): Observable<any> {
+  public buscarTodos(
+    pagina: number,
+    tamanho: number,
+    nome: string
+  ): Observable<any> {
     return this.http.get(
-      Backend.baseProduto + `/paginacao?nome=${nome}&page=${pagina}&size=${tamanho}`
+      Backend.baseProduto +
+        `/paginacao?nome=${nome}&page=${pagina}&size=${tamanho}`
     );
   }
   public buscarProdutoPorId(id: number): Observable<any> {
@@ -58,5 +63,13 @@ export class ProdutoService {
 
   public tirarDoEstoque(id: number): Observable<any> {
     return this.http.delete(Backend.baseProduto + `/${id}/estoque`);
+  }
+
+  public adicionarImagem(id: number, foto: FormData): Observable<any> {
+    return this.http.put(Backend.baseProduto + `/${id}/foto`, foto);
+  }
+
+  public removerFoto(id: number): Observable<any> {
+    return this.http.delete(Backend.baseProduto + `/${id}/foto`);
   }
 }

@@ -1,0 +1,42 @@
+<div class="novo-endereco">
+  <h1 class="texto-centralizado">Endereço</h1>
+  <form class="example-form" [formGroup]="formGroup">
+    <span class="texto-centralizado" *ngIf="cepValido">{{enderecoInput?.bairro}} - {{enderecoInput?.endereco}} -
+      {{enderecoInput?.cidade}} -
+      {{enderecoInput?.estado}}</span>
+    <mat-form-field class="example-full-width">
+      <mat-label>Cep</mat-label>
+      <input type="text" (blur)="buscarCep()" mask="00000-000" formControlName="cep" matInput
+        [errorStateMatcher]="matcher" placeholder="00000-000">
+      <mat-error *ngIf="formGroup.get('cep').getError('required')">
+        {{getMensagemCampoObrigatorio('Cep')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('cep').getError('mask')">
+        {{getEmailOuCpfInvalido('Cep')}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Complemento</mat-label>
+      <input type="text" formControlName="complemento" matInput [errorStateMatcher]="matcher" placeholder="complemento">
+      <mat-error
+        *ngIf="formGroup.get('complemento').getError('minlength') || formGroup.get('complemento').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Complemento', 0, 255)}}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Numero</mat-label>
+      <input type="number" formControlName="numero" matInput [errorStateMatcher]="matcher" placeholder="Numero">
+      <mat-error *ngIf="formGroup.get('numero').getError('required')">
+        {{getMensagemCampoObrigatorio('Numero')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('numero').getError('minlength') || formGroup.get('numero').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Numero', 0, 10)}}
+      </mat-error>
+    </mat-form-field>
+    <div>
+      <button mat-raised-button (click)="confirmar()
+      " class="botao-confirmar" [disabled]="formGroup.invalid || !cepValido"
+        color="warn">Confirmar</button>
+    </div>
+  </form>
+</div>

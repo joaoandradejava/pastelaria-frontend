@@ -22,4 +22,13 @@ export class SnackbarService {
       panelClass: ['error'],
     });
   }
+
+  public mostrarMensagemAlerta(mensagem: string, duracao: number): void {
+    this.snackBar.dismiss()
+    this.snackBar.open(mensagem, 'Fechar', {
+      duration: duracao,
+      verticalPosition: 'top',
+      panelClass: ['alerta'],
+    });
+  }
 }

@@ -1,0 +1,43 @@
+<div class="carrinho-compras">
+  <h1 class="texto-centralizado">Carrinho de compras</h1>
+
+  <div *ngIf="carrinhoCompra === null; else info">
+    <h2>Carrinho vázio</h2>
+  </div>
+  <ng-template #info>
+    <button mat-stroked-button color="primary" (click)="limparCarrinho()">Limpar Carrinho</button>
+    <div>
+      <table class="table">
+        <thead>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Subtotal</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of carrinhoCompra.produtos">
+            <td>{{produto?.id}}</td>
+            <td>{{produto?.nome}}</td>
+            <td>{{produto?.preco | currency}}</td>
+            <td>
+              <button class="button" (click)="subtrairCarrinho(produto)"
+                style="background-color: var(--cor-error);">-</button>
+              {{produto?.quantidade}}X
+              <button class="button" style="background-color: var(--cor-dinheiro);"
+                (click)="adicionarCarrinho(produto)">+</button>
+            </td>
+            <td>{{produto?.preco * produto?.quantidade | currency}}</td>
+          </tr>
+          <tr>
+            <td colspan="4"  style="font-size: 1.5em; text-align: end;font-weight: bold;">Valor total:</td>
+            <td colspan="1" style="font-size: 1.5em;">{{valorTotal() | currency}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="botao-finalizar-pedido">
+        <button mat-raised-button (click)="finalizarPedido()" color="primary">Finalizar Pedido</button>
+      </div>
+    </div>
+  </ng-template>
+</div>

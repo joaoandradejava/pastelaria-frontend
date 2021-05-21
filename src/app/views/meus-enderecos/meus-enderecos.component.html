@@ -1,0 +1,9 @@
+<div class="meus-enderecos">
+  <div>
+    <button (click)="abrirModalNovoEndereco()" mat-raised-button color="primary">Novo</button>
+  </div>
+  <div class="cards">
+    <app-card-endereco (atualizarEnderecosDoCliente)="buscarEnderecosDoCliente()"
+      *ngFor="let endereco of enderecos | async" [enderecoModel]="endereco"></app-card-endereco>
+  </div>
+</div>

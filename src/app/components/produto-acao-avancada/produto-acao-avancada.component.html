@@ -24,15 +24,21 @@
       <span>Tem estoque?: {{produtoFullModel?.isTemEstoque? 'Sim' : 'Não'}}</span>
     </div>
     <div>
+      <span>Tem foto?: {{produtoFullModel?.avatarUrl? 'Sim' : 'Não'}}</span>
+    </div>
+    <div>
       <span>Categoria: {{produtoFullModel?.categoria.nome}}</span>
     </div>
   </div>
 
   <div>
     <h2>Ações</h2>
-    <div>
+    <div class="botoes">
       <button mat-raised-button [color]="produtoFullModel?.isTemEstoque? 'warn': 'primary'"
         (click)="acaoDoEstoque()">{{produtoFullModel?.isTemEstoque? 'Tirar do estoque': 'Colocar no estoque'}}</button>
+      <input type="file" *ngIf="!produtoFullModel?.avatarUrl" (change)="inputFileChange($event)" />
+      <button mat-raised-button color="warn" *ngIf="produtoFullModel?.avatarUrl" (click)="removerFoto()">Remover
+        foto</button>
     </div>
   </div>
 

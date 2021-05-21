@@ -1,3 +1,5 @@
+import { PedidoService } from './shared/services/pedido.service';
+import { CarrinhoService } from './shared/services/carrinho.service';
 import { AdministradorGuard } from './shared/guards/administrador.guard';
 import { AutenticadoGuard } from './shared/guards/autenticado.guard';
 import { AutenticacaoService } from './shared/services/autenticacao.service';
@@ -34,6 +36,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatMenuModule } from '@angular/material/menu';
 import { MudarSenhaComponent } from './components/mudar-senha/mudar-senha.component';
 import { EsqueceuSenhaComponent } from './components/esqueceu-senha/esqueceu-senha.component';
+import { CarrinhoDeComprasComponent } from './components/carrinho-de-compras/carrinho-de-compras.component';
+import { EscolherEnderecoComponent } from './components/escolher-endereco/escolher-endereco.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -49,7 +53,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     LoginComponent,
     MudarSenhaComponent,
     EsqueceuSenhaComponent,
-
+    CarrinhoDeComprasComponent,
+    EscolherEnderecoComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +80,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     AutenticacaoService,
     AutenticadoGuard,
     AdministradorGuard,
+    CarrinhoService,
+    PedidoService,
     { provide: HTTP_INTERCEPTORS, useClass: TokenJwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },

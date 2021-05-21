@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.pageEvent.pageSize = 8;
+    this.pageEvent.pageSize = 6;
     this.pageEvent.pageIndex = 0;
     this.categorias = this.categoriaService.buscarTodos();
 

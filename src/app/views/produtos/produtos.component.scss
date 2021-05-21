@@ -11,9 +11,13 @@
 }
 
 .table th {
-  background-color: rgb(0, 153, 255);
+  background-color: rgb(23, 0, 78);
   padding: 5px 0px;
   color: white;
+}
+
+.table td {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.644);
 }
 
 .botoes {
@@ -29,3 +33,10 @@
   flex-flow: row wrap;
 }
 
+.tem {
+  color: var(--cor-sucesso);
+}
+
+.nao-tem {
+  color: var(--cor-error);
+}

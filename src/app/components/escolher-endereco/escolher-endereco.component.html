@@ -1,0 +1,21 @@
+<div class="escolher-endereco">
+  <h1 class="texto-centralizado">Selecione um endereço de entrega</h1>
+  <div class="cards">
+    <div class="card-endereco" *ngFor="let endereco of clienteFullModel.enderecos">
+      <div>
+        <div class="circle" (click)="escolherEndereco(endereco)"
+          [ngClass]="{'escolhido': enderecoModel !== undefined && endereco?.id === enderecoModel?.id}">
+        </div>
+      </div>
+      <div>
+        <span>{{endereco?.cep}} - {{endereco?.endereco}} - {{endereco?.bairro}} - {{endereco?.numero}} -
+          {{endereco?.complemento}} - {{endereco?.bairro}} - {{endereco?.cidade}} - {{endereco?.estado}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="botao">
+    <button mat-raised-button color="warn" (click)="confirmar()"
+      [disabled]="enderecoModel === undefined">Confirmar</button>
+  </div>
+</div>

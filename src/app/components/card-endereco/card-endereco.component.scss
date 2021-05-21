@@ -1,0 +1,31 @@
+.card-endereco {
+  border: 1px solid rgb(160, 160, 160);
+  width: 475px;
+  margin: 10px;
+  height: 110px;
+  box-shadow: 1px 1px 3px black;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.card-img {
+  flex-grow: 1;
+}
+
+.card-img img {
+  width: 50px;
+}
+
+.card-info {
+  flex-grow: 4;
+}
+
+.card-buttons {
+  flex-grow: 1;
+}
+
+.card-buttons button {
+  display: block;
+  margin: 5px 0;
+}

@@ -1,3 +1,4 @@
+import { ProdutoAdminModelPagination } from './../../shared/models/produto-admin-model-pagination';
 import { ProdutoAcaoAvancadaComponent } from './../../components/produto-acao-avancada/produto-acao-avancada.component';
 import { ProdutoInputComponent } from './../../components/produto-input/produto-input.component';
 import { PageEvent } from '@angular/material/paginator';
@@ -16,7 +17,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./produtos.component.scss'],
 })
 export class ProdutosComponent implements OnInit {
-  produtosPagination: ProdutoModelPagination;
+  produtosPagination: ProdutoAdminModelPagination;
   pageEvent: PageEvent = new PageEvent();
   tamanho: number;
   formGroup: FormGroup;
@@ -42,6 +43,7 @@ export class ProdutosComponent implements OnInit {
       .get('nome')
       .valueChanges.pipe(debounceTime(1000), distinctUntilChanged())
       .subscribe((data) => {
+        this.pageEvent.pageIndex = 0;
         this.buscarTodos();
       });
   }

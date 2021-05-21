@@ -39,3 +39,13 @@
   color: white;
 }
 
+
+::ng-deep .alerta {
+  background-color: rgb(255, 145, 0);
+  color: white;
+}
+
+::ng-deep .alerta button {
+  color: white;
+}
+

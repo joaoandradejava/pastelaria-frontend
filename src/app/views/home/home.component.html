@@ -11,7 +11,7 @@
   {{categoriaSelecionada | json}}
   <div class="card-produtos">
     <app-card-produto [routerLink]="['/produto-item', produto.id]" routerLinkActive="router-link-active"  *ngFor="let produto of produtoModelPaginatio?.content" [produto]="produto"></app-card-produto>
-    <mat-paginator [length]="pageEvent.length" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="[8]"
+    <mat-paginator [length]="pageEvent.length" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="[6]"
       (page)="onChangePage($event)">
     </mat-paginator>
   </div>

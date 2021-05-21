@@ -1,6 +1,7 @@
 export class Backend {
   private static get baseUrl(): string {
     return 'https://pastelaria-beicola.herokuapp.com/';
+    //return 'http://localhost:8080/'
   }
 
   public static get baseCategoria(): string {
@@ -17,5 +18,9 @@ export class Backend {
 
   public static get baseCliente(): string {
     return this.baseUrl + 'clientes';
+  }
+
+  public static get basePedido(): string {
+    return this.baseUrl + 'pedidos';
   }
 }

@@ -1,0 +1,14 @@
+<div class="card-endereco">
+  <div class="card-img">
+    <img src="../../../assets/images/house-icon.png" alt="Endereço">
+  </div>
+  <div class="card-info">
+    <span>{{enderecoModel?.cep}}</span> <br>
+    <span>{{enderecoModel?.endereco}} - {{enderecoModel?.bairro}} - {{enderecoModel?.numero}}</span>
+    <br>
+    <span>{{enderecoModel?.estado}} - {{enderecoModel?.cidade}}</span>
+  </div>
+  <div class="card-buttons">
+    <button mat-raised-button (click)="deletarEnderecoDoCliente()" color="warn">Deletar</button>
+  </div>
+</div>

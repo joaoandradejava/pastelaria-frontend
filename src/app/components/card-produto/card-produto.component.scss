@@ -1,16 +1,16 @@
 .card-produto {
-  border: 1px solid rgba(0, 0, 0, 0.493);
+  border: 1px solid rgba(63, 63, 63, 0.493);
   width: 240px;
   height: 300px;
-  border-radius: 30px;
+  border-radius: 10px;
   cursor: pointer;
   margin: 10px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.397);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.397);
   color: var(--cor-font-default);
 }
 
 .card-produto img {
-  width: 90%;
+  height: 130px;
   margin: 10px auto;
   display: block;
   border-radius: 5px;
@@ -38,5 +38,4 @@ h3 {
 .card-preco-nome {
   height: 70px;
   padding: 10px 5px;
-  font-size: 1vw;
 }

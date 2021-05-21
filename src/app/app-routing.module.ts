@@ -1,3 +1,4 @@
+import { CarrinhoDeComprasComponent } from './components/carrinho-de-compras/carrinho-de-compras.component';
 import { AutenticadoGuard } from './shared/guards/autenticado.guard';
 import { ProdutoItemComponent } from './views/produto-item/produto-item.component';
 import { HomeComponent } from './views/home/home.component';
@@ -20,6 +21,19 @@ const routes: Routes = [
     path: 'produtos',
     loadChildren: () =>
       import('./views/produtos/produtos.module').then((m) => m.ProdutosModule),
+    canActivate: [AutenticadoGuard],
+  },
+  {
+    path: 'meus-enderecos',
+    loadChildren: () =>
+      import('./views/meus-enderecos/meus-enderecos.module').then(
+        (m) => m.MeusEnderecosModule
+      ),
+    canActivate: [AutenticadoGuard],
+  },
+  {
+    path: 'carrinho-compras',
+    component: CarrinhoDeComprasComponent,
     canActivate: [AutenticadoGuard],
   },
 ];

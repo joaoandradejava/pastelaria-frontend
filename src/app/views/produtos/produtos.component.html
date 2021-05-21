@@ -9,7 +9,8 @@
       </form>
       <div class="botoes-pesquisa">
         <button (click)="limpar()" style="margin-left: 10px;" mat-raised-button>Limpar Pesquisa</button>
-        <button (click)="openModalNovoProduto()"  style="margin-left: 10px;" mat-raised-button color="primary">Novo</button>
+        <button (click)="openModalNovoProduto()" style="margin-left: 10px;" mat-raised-button
+          color="primary">Novo</button>
       </div>
     </div>
   </div>
@@ -21,6 +22,7 @@
           <th>Nome</th>
           <th>Preço</th>
           <th>Tem estoque</th>
+          <th>Tem foto</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -29,7 +31,9 @@
           <td>{{produto.id}}</td>
           <td>{{produto.nome}}</td>
           <td>{{produto.preco}}</td>
-          <td>{{produto.isTemEstoque? 'Sim': 'Não'}}</td>
+          <td [ngClass]="{'tem': produto.isTemEstoque === true, 'nao-tem': produto.isTemEstoque === false}">
+            {{produto.isTemEstoque? 'Sim': 'Não'}}</td>
+          <td [ngClass]="{'tem': produto.isTemFoto, 'nao-tem': !produto.isTemFoto}">{{produto.isTemFoto? 'Sim': 'Não'}}</td>
           <td>
             <div class="botoes">
               <button mat-raised-button color="primary" (click)="openModalEditarProduto(produto.id)">Editar</button>

@@ -1,0 +1,45 @@
+.escolher-endereco {
+  width: 500px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.card-endereco {
+  border: 1px solid rgba(54, 54, 54, 0.514);
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.274);
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5px;
+}
+
+.circle {
+  border: 2px solid black;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-right: 10px;
+}
+
+.escolhido {
+  background-color: rgb(228, 47, 47);
+}
+
+.circle:hover {
+  cursor: pointer;
+}
+
+.botao {
+  margin: 30px;
+}
+
+.botao button {
+  width: 100%;
+}
