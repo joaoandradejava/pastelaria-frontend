@@ -1,0 +1,27 @@
+.meus-pedidos {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.card-pedido {
+  border: 1px solid rgba(100, 100, 100, 0.541);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 550px;
+  height: 100px;
+  justify-content: space-around;
+  margin: 10px 0px;
+}
+
+.card-pedido:hover{
+  cursor: pointer;
+}

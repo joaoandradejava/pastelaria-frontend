@@ -1,0 +1,25 @@
+<div class="categoria-input">
+  <form class="example-form" [formGroup]="formGroup">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nome</mat-label>
+      <input type="text" matInput formControlName="nome" [errorStateMatcher]="matcher">
+      <mat-error *ngIf="formGroup.get('nome').getError('required')">
+        {{getMensagemCampoObrigatorio('Nome')}}
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('nome').getError('minlength') || formGroup.get('nome').getError('maxlength')">
+        {{getMensagemCampoTamanhoCaracteres('Nome', 0, 255)}}
+      </mat-error>
+    </mat-form-field>
+
+
+    <div class="botoes">
+      <button mat-raised-button color="warn" (click)="cancelar()">Cancelar</button>
+      <button mat-raised-button (click)="limpar()">Limpar</button>
+      <button mat-raised-button color="primary" (click)="salvar()" [disabled]="formGroup.invalid">{{isAtualizar()?
+        'Atualizar' :
+        'Cadastrar'}}</button>
+    </div>
+
+  </form>
+
+</div>

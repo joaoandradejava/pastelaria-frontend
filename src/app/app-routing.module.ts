@@ -4,6 +4,7 @@ import { ProdutoItemComponent } from './views/produto-item/produto-item.componen
 import { HomeComponent } from './views/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdministradorGuard } from './shared/guards/administrador.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -35,6 +36,28 @@ const routes: Routes = [
     path: 'carrinho-compras',
     component: CarrinhoDeComprasComponent,
     canActivate: [AutenticadoGuard],
+  },
+  {
+    path: 'meus-pedidos',
+    loadChildren: () =>
+      import('./views/meus-pedidos/meus-pedidos.module').then(
+        (m) => m.MeusPedidosModule
+      ),
+    canActivate: [AutenticadoGuard],
+  },
+  {
+    path: 'pedido/:id',
+    loadChildren: () =>
+      import('./views/pedido/pedido.module').then((m) => m.PedidoModule),
+    canActivate: [AutenticadoGuard],
+  },
+  {
+    path: 'categorias',
+    loadChildren: () =>
+      import('./views/categorias/categorias.module').then(
+        (m) => m.CategoriasModule
+      ),
+    canActivate: [AutenticadoGuard, AdministradorGuard],
   },
 ];
 

@@ -1,0 +1,43 @@
+<div class="categorias">
+  <div>
+    <div class="formulario">
+      <form class="example-form" [formGroup]="formGroup">
+        <mat-form-field class="example-full-width">
+          <mat-label>pesquisa </mat-label>
+          <input type="text" formControlName="nome" matInput placeholder="Pesquisar por nome...">
+        </mat-form-field>
+      </form>
+      <div class="botoes-pesquisa">
+        <button (click)="limpar()" style="margin-left: 10px;" mat-raised-button>Limpar Pesquisa</button>
+        <button (click)="openModalNovoCategoria()" style="margin-left: 10px;" mat-raised-button
+          color="primary">Novo</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categoria of categoriasPagination?.content">
+          <td>{{categoria.id}}</td>
+          <td>{{categoria.nome}}</td>
+          <td>
+            <div class="botoes">
+              <button mat-raised-button color="primary" (click)="openModalEditarCategoria(categoria.id)">Editar</button>
+              <button mat-raised-button color="warn" (click)="deletarPorId(categoria.id, categoria.nome)">Deletar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator (page)="onChangePage($event)" [length]="pageEvent.length" [pageSize]="pageEvent.pageSize"
+      [pageSizeOptions]="[5]">
+    </mat-paginator>
+  </div>
+</div>

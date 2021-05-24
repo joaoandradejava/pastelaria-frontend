@@ -1,3 +1,4 @@
+import { EnderecoModel } from './../../shared/models/endereco-model';
 import { Observable } from 'rxjs';
 import { AutenticacaoService } from './../../shared/services/autenticacao.service';
 import { EnderecoService } from './../../shared/services/endereco.service';
@@ -11,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./meus-enderecos.component.scss'],
 })
 export class MeusEnderecosComponent implements OnInit {
-  enderecos: Observable<any>;
+  enderecos: EnderecoModel[];
 
   constructor(
     private dialog: MatDialog,
@@ -24,12 +25,20 @@ export class MeusEnderecosComponent implements OnInit {
   }
 
   public abrirModalNovoEndereco(): void {
-    this.dialog.open(NovoEnderecoComponent);
+    const dialogRef  =this.dialog.open(NovoEnderecoComponent);
+
+    dialogRef.afterClosed().subscribe(_ => {
+      this.buscarEnderecosDoCliente()
+    })
   }
 
   buscarEnderecosDoCliente(): void {
-    this.enderecos = this.enderecoService.buscarEnderecoDoCliente(
-      this.autenticacaoService.getClienteAutenticado().id
-    );
+    this.enderecoService
+      .buscarEnderecoDoCliente(
+        this.autenticacaoService.getClienteAutenticado().id
+      )
+      .subscribe((data) => {
+        this.enderecos = data;
+      });
   }
 }

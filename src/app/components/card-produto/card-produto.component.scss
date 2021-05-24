@@ -3,7 +3,6 @@
   width: 240px;
   height: 300px;
   border-radius: 10px;
-  cursor: pointer;
   margin: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.397);
   color: var(--cor-font-default);
@@ -16,8 +15,15 @@
   border-radius: 5px;
 }
 
+.clicavel {
+  cursor: pointer;
+}
+
 .card-about {
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 100px;
 }
 
 h3 {

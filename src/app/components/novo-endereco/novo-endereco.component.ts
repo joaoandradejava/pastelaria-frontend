@@ -4,7 +4,7 @@ import { EnderecoInput } from './../../shared/models/endereco-input';
 import { SnackbarService } from './../../shared/services/snackbar.service';
 import { EnderecoService } from './../../shared/services/endereco.service';
 import { ValidadorFormulario } from './../../shared/utils/validador-formulario';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import {
   FormControl,
   FormGroup,

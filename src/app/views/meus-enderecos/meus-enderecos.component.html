@@ -2,8 +2,12 @@
   <div>
     <button (click)="abrirModalNovoEndereco()" mat-raised-button color="primary">Novo</button>
   </div>
-  <div class="cards">
+
+  <div class="cards" *ngIf="enderecos !== undefined && enderecos?.length > 0 ; else naoTemEndereco" >
     <app-card-endereco (atualizarEnderecosDoCliente)="buscarEnderecosDoCliente()"
-      *ngFor="let endereco of enderecos | async" [enderecoModel]="endereco"></app-card-endereco>
+      *ngFor="let endereco of enderecos" [enderecoModel]="endereco"></app-card-endereco>
   </div>
+  <ng-template #naoTemEndereco>
+    <h1 class="texto-centralizado">Você não tem nenhum endereço de entrega cadastrado!</h1>
+  </ng-template>
 </div>

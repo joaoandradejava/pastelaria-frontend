@@ -38,6 +38,7 @@ import { MudarSenhaComponent } from './components/mudar-senha/mudar-senha.compon
 import { EsqueceuSenhaComponent } from './components/esqueceu-senha/esqueceu-senha.component';
 import { CarrinhoDeComprasComponent } from './components/carrinho-de-compras/carrinho-de-compras.component';
 import { EscolherEnderecoComponent } from './components/escolher-endereco/escolher-endereco.component';
+import { CategoriaInputComponent } from './components/categoria-input/categoria-input.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -55,6 +56,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     EsqueceuSenhaComponent,
     CarrinhoDeComprasComponent,
     EscolherEnderecoComponent,
+    CategoriaInputComponent,
   ],
   imports: [
     BrowserModule,

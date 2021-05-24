@@ -1,0 +1,45 @@
+<div class="pedido">
+  <div class="nova-info">
+    <div class="card" *ngFor="let item of pedidoFullModel?.itens">
+      <div>
+        <span class="bold">{{item.quantidade}}x {{item.id.produto.nome}}</span>
+      </div>
+      <div>
+        <span class="bold">{{item?.quantidade * item?.valor| currency}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 25px;">
+    <div>
+      <span class="bold">Valor total</span>
+    </div>
+    <div>
+      <span class="bold">{{pedidoFullModel?.valorTotal | currency}}</span>
+    </div>
+  </div>
+  <div class="nova-info">
+    <span class="titulo-info">Entregar Em</span>
+    <span>{{pedidoFullModel?.enderecoDeEntrega.endereco}}, {{pedidoFullModel?.enderecoDeEntrega.numero}} -
+      {{pedidoFullModel?.enderecoDeEntrega.bairro}} - {{pedidoFullModel?.enderecoDeEntrega.estado}} -
+      {{pedidoFullModel?.enderecoDeEntrega.cidade}}/{{pedidoFullModel?.enderecoDeEntrega.estado}}</span>
+    <br>
+    <span *ngIf="pedidoFullModel?.enderecoDeEntrega.complemento">Complemento:
+      {{pedidoFullModel?.enderecoDeEntrega.complemento}}</span>
+  </div>
+
+  <div class="nova-info">
+    <span class="titulo-info">Numero do pedido</span>
+    <span class="espaco-entre-infos">{{pedidoFullModel?.id}}</span>
+
+    <span class="titulo-info">Data do pedido</span>
+    <span>{{pedidoFullModel?.data}}</span>
+  </div>
+
+  <div class="nova-info">
+    <span class="titulo-info">Status do Pedido</span>
+    <span class="espaco-entre-infos">{{pedidoFullModel?.situacaoPedido}}</span>
+
+    <span class="titulo-info">Situação do Pagamento</span>
+    <span>{{pedidoFullModel?.pagamento.situacaoPagamento}}</span>
+  </div>
+</div>
