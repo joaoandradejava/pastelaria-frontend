@@ -1,0 +1,39 @@
+.sobre {
+  font-size: 1.3em;
+}
+
+.info {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.skills {
+  width: 100% !important;
+  color: white;
+  background-color: rgb(10, 0, 46);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.skills h1 {
+  font-size: 1.6em;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.sinopse {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.imagem-center {
+  display: block;
+  margin: 10px auto;
+}
+

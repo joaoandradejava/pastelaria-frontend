@@ -1,4 +1,20 @@
 .footer {
   text-align: center;
-  color: var(--cor-font-default);
+}
+
+.contatos {
+  width: 400px;
+  margin: 0 auto;
+  padding: 10px 15px;
+}
+
+.contatos ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contatos img {
+  width: 50%;
 }

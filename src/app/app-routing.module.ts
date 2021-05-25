@@ -59,6 +59,10 @@ const routes: Routes = [
       ),
     canActivate: [AutenticadoGuard, AdministradorGuard],
   },
+  { path: 'pedidos-admin', loadChildren: () => import('./views/pedidos-admin/pedidos-admin.module').then(m => m.PedidosAdminModule), canActivate: [AutenticadoGuard
+  , AdministradorGuard
+] },
+  { path: 'sobre', loadChildren: () => import('./views/sobre/sobre.module').then(m => m.SobreModule) },
 ];
 
 @NgModule({

@@ -1,0 +1,38 @@
+<div class="pedidos-admin">
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Data do pedido</th>
+          <th>Valor Total</th>
+          <th>Situação do Pedido</th>
+          <th>Situação do Pagamento</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pedido of pedidosPagination?.content">
+          <td>{{pedido.id}}</td>
+          <td>{{pedido.data}}</td>
+          <td>{{pedido.valorTotal | currency}}</td>
+          <td>{{pedido.situacaoPedido}}</td>
+          <td>{{pedido.pagamento.situacaoPagamento}}</td>
+          <td>
+            <div class="botoes">
+              <button mat-raised-button color="primary" *ngIf="pedido.situacaoPedido == 'FAZENDO_A_COMIDA'"
+                (click)="saiuParaEntrega(pedido.id)">Saiu para entrega</button>
+              <button mat-raised-button color="primary" *ngIf="pedido.situacaoPedido == 'SAIU_PARA_ENTREGA'"
+                (click)="concluido(
+                pedido.id)">Concluido</button>
+              <button mat-raised-button color="warn" (click)="cancelar(pedido.id)">Cancelar</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator (page)="onChangePage($event)" [length]="pageEvent.length" [pageSize]="pageEvent.pageSize"
+      [pageSizeOptions]="[5, 10]">
+    </mat-paginator>
+  </div>
+</div>

@@ -1,12 +1,14 @@
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.2fr 1fr 0.1fr;
+  grid-template-rows: 0.2fr 1fr 0.2fr;
   grid-template-areas:
     "header"
     "conteudo"
     "footer";
   height: 100vh;
+
+  grid-gap: 10px;
 }
 
 .header {
@@ -19,6 +21,8 @@
 
 .footer {
   grid-area: footer;
+  background-color: black;
+  color: white;
 }
 
 ::ng-deep .success {

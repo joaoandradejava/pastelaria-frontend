@@ -20,6 +20,34 @@ export class PedidoService {
     );
   }
 
+  public saiuParaEntrega(pedidoId: number): Observable<any> {
+    return this.http.put(
+      Backend.basePedido + `/${pedidoId}/saiu-para-entrega`,
+      null
+    );
+  }
+
+  public concluido(pedidoId: number): Observable<any> {
+    return this.http.put(Backend.basePedido + `/${pedidoId}/concluido`, null);
+  }
+
+  public cancelarImprevisto(pedidoId: number): Observable<any> {
+    return this.http.put(
+      Backend.basePedido + `/${pedidoId}/cancelado-imprevisto`,
+      null
+    );
+  }
+
+  public buscarTodasPorPaginacao(
+    pagina: number,
+    tamanho: number
+  ): Observable<any> {
+    return this.http.get(
+      Backend.basePedido +
+        `/buscar-todos/paginacao?page=${pagina}&size=${tamanho}`
+    );
+  }
+
   public buscarPorId(id: number): Observable<any> {
     return this.http.get(Backend.basePedido + `/${id}`);
   }

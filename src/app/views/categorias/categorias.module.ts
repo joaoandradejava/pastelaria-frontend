@@ -8,6 +8,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [CategoriasComponent],
@@ -19,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatInputModule,
     MatPaginatorModule,
+    MatFormFieldModule
   ],
 })
 export class CategoriasModule {}

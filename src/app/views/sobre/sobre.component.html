@@ -1,0 +1,42 @@
+<div class="sobre">
+  <div class="info">
+    <h1 style="font-size: 2em;" class="texto-centralizado">Me chamo João Andrade (Desenvolvedor Full-stack)</h1>
+    <p>Tenho 20 anos, sou estudante em analise e desenvolvimento de sistema, 5 Período. Amo a área de desenvolvimento,
+      já construir
+      vários pequenos projetos utilizando a linguagem Java com Spring boot na parte do Back-end e Angular no Front-end.
+      Tenho conhecimentos básicos de Html, Css, Javascript, angular e conhecimentos intermediários em Java com Spring.
+    </p>
+  </div>
+  <div class="skills">
+    <h1 class="texto-centralizado">Skills</h1>
+    <div class="cards">
+      <app-habilidade *ngFor="let habilidade of habilidades" [nomeHabilidade]="habilidade.nome"
+        [avatarUrl]="habilidade.avatarUrl"></app-habilidade>
+    </div>
+  </div>
+  <div class="sinopse">
+    <h1 class="texto-centralizado">Sistema da pastelaria do beiçola</h1>
+    <h2 class="texto-centralizado">O sistema da pastelaria foi insipirado na serie da grande familia passada na globo em meados dos anos 2001 a
+      2014.</h2>
+    <p>
+      A Grande Família é uma série de televisão brasileira de comédia de situação produzida pela TV Globo e exibida
+      entre 29 de março de 2001 e 11 de setembro de 2014 com 14 temporadas e 485 episódios,[1][2][3] sendo a obra de
+      maior duração do formato na televisão do país. Foi uma reinterpretação contemporânea baseada em roteiros do
+      seriado homônimo exibido de 1972 a 1975 escritos por Oduvaldo Vianna Filho e Armando Costa.[4] A sitcom gira em
+      torno dos membros da fictícia família Silva, de classe-média, moradora de um subúrbio na Zona Norte do Rio de
+      Janeiro, formada por Lineu, Nenê, Tuco, Bebel, Flor, Agostinho Carrara e Floriano Carrara.[5] Contou com as
+      participações de Marco Nanini, Marieta Severo, Rogério Cardoso, Lúcio Mauro Filho, Guta Stresser, Pedro Cardoso,
+      Andréa Beltrão, Marcos Oliveira, Tonico Pereira, Evandro Mesquita e Natália Lage nos papeis principais e
+      recorrentes.
+
+    </p>
+
+    <h1 class="texto-centralizado">Imagens do elenco</h1>
+    <img class="imagem-center" src="../../../assets/images/a grande familia/a grande familia.jpg" alt="">
+    <img  class="imagem-center" src="../../../assets/images/a grande familia/elenco-de-a-grande-família.jpg" alt="">
+    <img class="imagem-center"
+    
+    src="../../../assets/images/a grande familia/perfil.jpg" alt="">
+
+  </div>
+</div>

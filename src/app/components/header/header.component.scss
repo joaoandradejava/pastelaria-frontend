@@ -36,6 +36,11 @@
   font-size: 1.2em;
 }
 
+.selecionado {
+  color: var(--cor-link-hover) !important;
+  text-decoration: underline !important;
+}
+
 .menu-bar a:hover {
   color: var(--cor-link-hover);
   cursor: pointer;
