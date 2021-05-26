@@ -23,4 +23,8 @@ export class Backend {
   public static get basePedido(): string {
     return this.baseUrl + 'pedidos';
   }
+
+  public static get baseEstatistica(): string {
+    return this.baseUrl + 'estatisticas'
+  }
 }

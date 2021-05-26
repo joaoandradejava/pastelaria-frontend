@@ -1,0 +1,15 @@
+<div class="grafico-produto-mais-vendidos">
+  <div *ngIf="quatidadeVendidas.length > 0 && produtos.length > 0; else nenhumProdutoVendido">
+    <h1 class="texto-centralizado">Gráfico dos produtos mais vendidos na pastelaria</h1>
+
+    <div class="chart">
+      <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions" [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis"
+        [legend]="chartOptions.legend" [colors]="chartOptions.colors" [grid]="chartOptions.grid"></apx-chart>
+    </div>
+  </div>
+
+  <ng-template #nenhumProdutoVendido>
+    <h1 class="texto-centralizado">Nenhum produto foi vendido ate o momento</h1>
+  </ng-template>
+</div>

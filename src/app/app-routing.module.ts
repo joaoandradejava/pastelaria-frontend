@@ -63,6 +63,8 @@ const routes: Routes = [
   , AdministradorGuard
 ] },
   { path: 'sobre', loadChildren: () => import('./views/sobre/sobre.module').then(m => m.SobreModule) },
+  { path: 'grafico-produto-mais-vendidos', loadChildren: () => import('./views/grafico-produto-mais-vendidos/grafico-produto-mais-vendidos.module').then(m => m.GraficoProdutoMaisVendidosModule), canActivate: [AutenticadoGuard, AdministradorGuard
+  ] },
 ];
 
 @NgModule({

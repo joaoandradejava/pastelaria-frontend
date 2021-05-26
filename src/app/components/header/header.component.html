@@ -32,6 +32,9 @@
             <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/pedidos-admin']"
               routerLinkActive="router-link-active">
               Pedidos dos Clientes</button>
+              <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/grafico-produto-mais-vendidos']"
+              routerLinkActive="router-link-active">
+             Gráfico dos Produtos Mais Vendidos</button>
             <button mat-menu-item (click)="sair()"> <img src="../../../assets/images/exit.png" width="20%" />
               Sair</button>
           </mat-menu>
