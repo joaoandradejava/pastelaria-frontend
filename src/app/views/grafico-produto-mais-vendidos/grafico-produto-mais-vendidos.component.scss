@@ -7,3 +7,9 @@
   max-width: 650px;
   margin: 35px auto;
 }
+
+.botao{
+  display: flex;
+  flex-flow: row-reverse wrap;
+  margin-bottom: 30px;
+}

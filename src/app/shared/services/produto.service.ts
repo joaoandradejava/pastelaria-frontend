@@ -3,6 +3,8 @@ import { Backend } from './../utils/backend';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/operators'
+import { retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +19,7 @@ export class ProdutoService {
     return this.http.get(
       Backend.baseProduto +
         `/disponivel-estoque/paginacao?size=${tamanho}&page=${pagina}`
-    );
+    ).pipe(retry(5));
   }
 
   public buscarTodosProdutosPorCategoriaEDisponiveisNoEstoque(

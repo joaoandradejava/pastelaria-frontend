@@ -1,3 +1,5 @@
+import { RelatorioComponent } from './../../components/relatorio/relatorio.component';
+import { MatDialog } from '@angular/material/dialog';
 import { ProdutoMaisVendidoDTO } from './../../shared/models/produto-mais-vendido-dto';
 import { EstatisticaService } from './../../shared/services/estatistica.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -47,7 +49,7 @@ export class GraficoProdutoMaisVendidosComponent implements OnInit {
   quatidadeVendidas: number[] = [];
   produtos: string[] = [];
 
-  constructor(private estatisticaService: EstatisticaService) {}
+  constructor(private estatisticaService: EstatisticaService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.estatisticaService.buscarProdutosMaisVendidos().subscribe((data) => {
@@ -120,5 +122,17 @@ export class GraficoProdutoMaisVendidosComponent implements OnInit {
         };
       }
     });
+  }
+
+
+  public gerarRelatorioDosProdutosVendidos(): void {
+    this.estatisticaService.gerarRelatorioDosProdutosVendidos().subscribe(data => {
+      console.log(data)
+      this.dialog.open(RelatorioComponent, {data: {
+        nomeDoRelatorio: 'Relatório dos Produtos Vendidos na Pastelaria',
+        base64: data.relatorio
+      }})
+    })
+
   }
 }

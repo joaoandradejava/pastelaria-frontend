@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { GraficoProdutoMaisVendidosRoutingModule } from './grafico-produto-mais-vendidos-routing.module';
 import { GraficoProdutoMaisVendidosComponent } from './grafico-produto-mais-vendidos.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -11,7 +13,10 @@ import { NgApexchartsModule } from 'ng-apexcharts';
   imports: [
     CommonModule,
     GraficoProdutoMaisVendidosRoutingModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    MatButtonModule,
+    MatDialogModule
+
   ]
 })
 export class GraficoProdutoMaisVendidosModule { }

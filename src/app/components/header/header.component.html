@@ -5,37 +5,40 @@
 
   <div class="menu-bar">
     <ul *ngIf="!isLogado();else logado">
-      <li><a [routerLink]="['/sobre']" routerLinkActive="selecionado" >Sobre</a></li>
+      <li><a [routerLink]="['/sobre']" routerLinkActive="selecionado">Sobre</a></li>
       <li><a (click)="openDialogCadastroCliente()">Registre-se</a></li>
       <li><a (click)="openDialogLogin()">Entrar</a></li>
     </ul>
     <ng-template #logado>
       <ul>
         <li><a [routerLink]="['/sobre']" routerLinkActive="selecionado">Sobre</a></li>
-        <li><a [routerLink]="['/carrinho-compras']" routerLinkActive="selecionado">Carrinho de Compras</a></li>
+        <li><a [routerLink]="['/carrinho-compras']" routerLinkActive="selecionado"><span
+              class="info-quantidade-carrinho" *ngIf="quantidadeNoCarrinho() > 0">{{quantidadeNoCarrinho()}}</span>
+            Carrinho de Compras <img src="../../../assets/images/carrinho.jpg" alt=""></a>
+        </li>
         <li>
           <button mat-button [matMenuTriggerFor]="beforeMenu">
             <img src="../../../assets/images/person.png" />
             {{getClienteAutenticado().nome}}{{getClienteAutenticado().isAdmin? '(Admin)': ''}}</button>
           <mat-menu #beforeMenu="matMenu" xPosition="before">
             <button mat-menu-item [routerLink]="['/editar-dados']" routerLinkActive="router-link-active">
-              Editar Meus Dados</button>
+              <img src="../../../assets/images/edit-profile.png" alt=""> Editar Meus Dados</button>
             <button mat-menu-item [routerLink]="['/meus-enderecos']" routerLinkActive="router-link-active">
-              Meus endereços</button>
+              <img src="../../../assets/images/gps.png" alt=""> Meus endereços</button>
             <button mat-menu-item [routerLink]="['/meus-pedidos']" routerLinkActive="router-link-active">
-              Meus pedidos</button>
+              <img src="../../../assets/images/pedido.png" alt=""> Meus pedidos</button>
             <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/produtos']" routerLinkActive="router-link-active">
-              Produtos</button>
+              <img src="../../../assets/images/produto.png" alt=""> Produtos</button>
             <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/categorias']"
               routerLinkActive="router-link-active">
-              Categorias</button>
+              <img src="../../../assets/images/category.png" alt=""> Categorias</button>
             <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/pedidos-admin']"
               routerLinkActive="router-link-active">
-              Pedidos dos Clientes</button>
-              <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/grafico-produto-mais-vendidos']"
+              <img src="../../../assets/images/pedidoCliente.png" alt=""> Pedidos dos Clientes</button>
+            <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/grafico-produto-mais-vendidos']"
               routerLinkActive="router-link-active">
-             Gráfico dos Produtos Mais Vendidos</button>
-            <button mat-menu-item (click)="sair()"> <img src="../../../assets/images/exit.png" width="20%" />
+              <img src="../../../assets/images/chart.png" alt=""> Gráfico dos Produtos Mais Vendidos</button>
+            <button mat-menu-item (click)="sair()"> <img src="../../../assets/images/exit.png" />
               Sair</button>
           </mat-menu>
         </li>

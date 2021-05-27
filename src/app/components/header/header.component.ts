@@ -1,3 +1,4 @@
+import { CarrinhoService } from 'src/app/shared/services/carrinho.service';
 import { ClienteAutenticado } from './../../shared/models/cliente-autenticado';
 import { AutenticacaoService } from './../../shared/services/autenticacao.service';
 import { LoginComponent } from './../login/login.component';
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private autenticacaoService: AutenticacaoService,
-    private router: Router
+    private router: Router,
+    private carrinhoService: CarrinhoService
   ) {}
 
   ngOnInit(): void {}
@@ -23,6 +25,10 @@ export class HeaderComponent implements OnInit {
   sair(): void {
     this.router.navigate(['']);
     localStorage.clear();
+  }
+
+  quantidadeNoCarrinho(): number {
+    return this.carrinhoService.quantidadeNoCarrinho()
   }
 
   getClienteAutenticado(): ClienteAutenticado {

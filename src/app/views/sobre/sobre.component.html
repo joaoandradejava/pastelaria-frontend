@@ -16,7 +16,28 @@
   </div>
   <div class="sinopse">
     <h1 class="texto-centralizado">Sistema da pastelaria do beiçola</h1>
-    <h2 class="texto-centralizado">O sistema da pastelaria foi insipirado na serie da grande familia passada na globo em meados dos anos 2001 a
+    <div class="detalhes-tecnicos">
+      <h2 class="texto-centralizado">Detalhes Tecnicos</h2>
+      <h2 class="texto-centralizado">Aqui em baixo estão os detalhes tecnicos das tecnologias
+        que foram utilizadas na construção do sistema da
+        pastelaria</h2>
+
+      <div class="cards">
+        <div class="card" *ngFor="let tecnologia of tecnologiasUtilizadaNoProjeto">
+          <div class="card-titulo" [class]="tecnologia.css">
+            <h1>{{tecnologia.titulo}}</h1>
+          </div>
+          <div class="card-conteudo">
+            <ul *ngFor="let tec of tecnologia.tecnologias">
+              <li>{{tec.nome}}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <h2 class="texto-centralizado">O sistema da pastelaria foi insipirado na serie da grande familia passada na globo em
+      meados dos anos 2001 a
       2014.</h2>
     <p>
       A Grande Família é uma série de televisão brasileira de comédia de situação produzida pela TV Globo e exibida
@@ -33,10 +54,8 @@
 
     <h1 class="texto-centralizado">Imagens do elenco</h1>
     <img class="imagem-center" src="../../../assets/images/a grande familia/a grande familia.jpg" alt="">
-    <img  class="imagem-center" src="../../../assets/images/a grande familia/elenco-de-a-grande-família.jpg" alt="">
-    <img class="imagem-center"
-    
-    src="../../../assets/images/a grande familia/perfil.jpg" alt="">
+    <img class="imagem-center" src="../../../assets/images/a grande familia/elenco-de-a-grande-família.jpg" alt="">
+    <img class="imagem-center" src="../../../assets/images/a grande familia/perfil.jpg" alt="">
 
   </div>
 </div>

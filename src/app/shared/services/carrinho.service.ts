@@ -86,6 +86,15 @@ export class CarrinhoService {
     );
   }
 
+  public quantidadeNoCarrinho(): number{
+    let carrinhoCompra: CarrinhoCompra = this.buscarCarrinho()
+    if(carrinhoCompra != null){
+      return carrinhoCompra.produtos.length
+    }
+
+    return 0;
+  }
+
   public buscarCarrinho(): CarrinhoCompra {
     if (this.isTemCarrinho()) {
       let dados = JSON.parse(localStorage.getItem('carrinho'));

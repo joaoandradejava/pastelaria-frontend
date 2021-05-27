@@ -12,4 +12,9 @@ export class EstatisticaService {
   public buscarProdutosMaisVendidos(): Observable<any> {
     return this.http.get(Backend.baseEstatistica + '/produtos-mais-vendidos?size=8');
   }
+
+  public gerarRelatorioDosProdutosVendidos(): Observable<any>{
+    return this.http.get(Backend.baseEstatistica + '/produtos-mais-vendidos/relatorio')
+  }
+
 }

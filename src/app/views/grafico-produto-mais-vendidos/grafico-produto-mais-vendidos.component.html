@@ -1,5 +1,8 @@
 <div class="grafico-produto-mais-vendidos">
   <div *ngIf="quatidadeVendidas.length > 0 && produtos.length > 0; else nenhumProdutoVendido">
+    <div class="botao">
+      <button mat-raised-button (click)="gerarRelatorioDosProdutosVendidos()" color="primary">Gerar Relatório dos Produtos Vendidos</button>
+    </div>
     <h1 class="texto-centralizado">Gráfico dos produtos mais vendidos na pastelaria</h1>
 
     <div class="chart">
