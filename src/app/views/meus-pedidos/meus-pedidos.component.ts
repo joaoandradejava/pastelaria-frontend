@@ -12,12 +12,14 @@ import { SituacaoPagamento } from 'src/app/shared/models/situacao-pagamento';
 export class MeusPedidosComponent implements OnInit {
 
   pedidoModelPagination: PedidoModelPagination
+  temPedido: boolean = false
 
   constructor(private pedidoService: PedidoService) { }
 
   ngOnInit(): void {
     this.pedidoService.buscarTodos(0, 20).subscribe(data => {
       this.pedidoModelPagination = data
+      this.temPedido = this.pedidoModelPagination.content.length > 0? true : false
     })
   }
 

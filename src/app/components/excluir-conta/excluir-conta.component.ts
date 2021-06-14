@@ -14,7 +14,7 @@ export class ExcluirContaComponent implements OnInit {
     private autenticacaoService: AutenticacaoService,
     private clienteService: ClienteService,
     private router: Router,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
   ) {}
 
   ngOnInit(): void {}
