@@ -59,12 +59,35 @@ const routes: Routes = [
       ),
     canActivate: [AutenticadoGuard, AdministradorGuard],
   },
-  { path: 'pedidos-admin', loadChildren: () => import('./views/pedidos-admin/pedidos-admin.module').then(m => m.PedidosAdminModule), canActivate: [AutenticadoGuard
-  , AdministradorGuard
-] },
-  { path: 'sobre', loadChildren: () => import('./views/sobre/sobre.module').then(m => m.SobreModule) },
-  { path: 'grafico-produto-mais-vendidos', loadChildren: () => import('./views/grafico-produto-mais-vendidos/grafico-produto-mais-vendidos.module').then(m => m.GraficoProdutoMaisVendidosModule), canActivate: [AutenticadoGuard, AdministradorGuard
-  ] },
+  {
+    path: 'pedidos-admin',
+    loadChildren: () =>
+      import('./views/pedidos-admin/pedidos-admin.module').then(
+        (m) => m.PedidosAdminModule
+      ),
+    canActivate: [AutenticadoGuard, AdministradorGuard],
+  },
+  {
+    path: 'sobre',
+    loadChildren: () =>
+      import('./views/sobre/sobre.module').then((m) => m.SobreModule),
+  },
+  {
+    path: 'grafico-produto-mais-vendidos',
+    loadChildren: () =>
+      import(
+        './views/grafico-produto-mais-vendidos/grafico-produto-mais-vendidos.module'
+      ).then((m) => m.GraficoProdutoMaisVendidosModule),
+    canActivate: [AutenticadoGuard, AdministradorGuard],
+  },
+  {
+    path: 'deletar-conta',
+    loadChildren: () =>
+      import('./views/deletar-conta/deletar-conta.module').then(
+        (m) => m.DeletarContaModule
+      ),
+    canActivate: [AutenticadoGuard],
+  },
 ];
 
 @NgModule({

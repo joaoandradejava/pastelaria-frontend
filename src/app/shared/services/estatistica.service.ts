@@ -10,11 +10,18 @@ export class EstatisticaService {
   constructor(private http: HttpClient) {}
 
   public buscarProdutosMaisVendidos(): Observable<any> {
-    return this.http.get(Backend.baseEstatistica + '/produtos-mais-vendidos?size=8');
+    return this.http.get(
+      Backend.baseEstatistica + '/produtos-mais-vendidos?size=8'
+    );
   }
 
-  public gerarRelatorioDosProdutosVendidos(): Observable<any>{
-    return this.http.get(Backend.baseEstatistica + '/produtos-mais-vendidos/relatorio')
+  public gerarRelatorioDosProdutosVendidos(): Observable<any> {
+    return this.http.get(
+      Backend.baseEstatistica + '/produtos-mais-vendidos/relatorio'
+    );
   }
 
+  public gerarRelatorioDosProdutos(): Observable<any> {
+    return this.http.get(Backend.baseEstatistica + `/produtos/relatorio`);
+  }
 }

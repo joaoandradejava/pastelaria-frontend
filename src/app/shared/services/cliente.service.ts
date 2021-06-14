@@ -32,6 +32,10 @@ export class ClienteService {
     return this.http.put(Backend.baseCliente + `/senha`, mudarSenhaInput);
   }
 
+  public deletarConta(id: number): Observable<any> {
+    return this.http.delete(Backend.baseCliente + `/${id}`);
+  }
+
   public esqueciSenha(esqueciSenhaInput: EsqueciSenhaInput): Observable<any> {
     return this.http.put(
       Backend.baseCliente + `/esqueci-senha`,

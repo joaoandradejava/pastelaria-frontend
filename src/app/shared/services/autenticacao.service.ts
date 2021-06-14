@@ -31,4 +31,8 @@ export class AutenticacaoService {
 
     return clienteAutenticado;
   }
+
+  public deslogar(): void {
+    localStorage.clear()
+  }
 }

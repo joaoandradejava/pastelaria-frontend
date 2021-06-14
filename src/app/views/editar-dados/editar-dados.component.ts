@@ -118,26 +118,13 @@ export class EditarDadosComponent implements OnInit {
       }
       this.clienteService
         .atualizar(this.formGroup.value, this.clienteFullModel.id)
-        .subscribe(
-          (data) => {
-            this.snackbarService.mostrarMensagemSucesso(
-              'Seus dados foram atualizados com sucesso!',
-              5000
-            );
-            this.buscarClienteAutenticado();
-          },
-          (error) => {
-            let errors = error.error.errors;
-            if (errors) {
-              let mensagem = '';
-              for (let i = 0; i < errors.length; i++) {
-                mensagem = errors[i].userMessage;
-              }
-
-              this.snackbarService.mostrarMensagemError(mensagem, 5000);
-            }
-          }
-        );
+        .subscribe((data) => {
+          this.snackbarService.mostrarMensagemSucesso(
+            'Seus dados foram atualizados com sucesso!',
+            5000
+          );
+          this.buscarClienteAutenticado();
+        });
     }
   }
 }

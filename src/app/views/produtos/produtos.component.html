@@ -11,6 +11,8 @@
         <button (click)="limpar()" style="margin-left: 10px;" mat-raised-button>Limpar Pesquisa</button>
         <button (click)="openModalNovoProduto()" style="margin-left: 10px;" mat-raised-button
           color="primary">Novo</button>
+        <button (click)="gerarRelatorioDosProdutos()" style="margin-left: 10px;" mat-raised-button color="primary">Gerar
+          Relatório dos Produtos</button>
       </div>
     </div>
   </div>
@@ -33,7 +35,8 @@
           <td>{{produto.preco}}</td>
           <td [ngClass]="{'tem': produto.isTemEstoque === true, 'nao-tem': produto.isTemEstoque === false}">
             {{produto.isTemEstoque? 'Sim': 'Não'}}</td>
-          <td [ngClass]="{'tem': produto.isTemFoto, 'nao-tem': !produto.isTemFoto}">{{produto.isTemFoto? 'Sim': 'Não'}}</td>
+          <td [ngClass]="{'tem': produto.isTemFoto, 'nao-tem': !produto.isTemFoto}">{{produto.isTemFoto? 'Sim': 'Não'}}
+          </td>
           <td>
             <div class="botoes">
               <button mat-raised-button color="primary" (click)="openModalEditarProduto(produto.id)">Editar</button>

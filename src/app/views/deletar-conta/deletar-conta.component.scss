@@ -1,0 +1,16 @@
+.conteudo {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.botao-centralizado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  margin-top: 15px;
+}
+
+.botao-centralizado button {
+  width: 30%;
+}

@@ -3,7 +3,8 @@
     <img [src]="getImagem()" alt="">
   </div>
   <div >
-    <h3>{{produtoModel?.nome}} <span style="color: var(--cor-dinheiro);">{{produtoModel?.preco | currency}}</span></h3>
+    <h3>{{produtoModel?.nome}}</h3>
+    <span style="color: var(--cor-dinheiro);">A partir de {{produtoModel?.preco | currency}}</span>
     <p>{{produtoModel?.descricao}}</p>
     <button class="botao-carrinho" (click)="adicionarNoCarrinho()" mat-raised-button color="primary">Adicionar no
       carrinho</button>

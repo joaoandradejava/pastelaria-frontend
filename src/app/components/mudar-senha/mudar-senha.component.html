@@ -1,8 +1,9 @@
 <div class="mudar-senha">
+  <h1 class="texto-centralizado">Mudança de senha</h1>
   <form class="example-form" [formGroup]="formGroup">
     <mat-form-field class="example-full-width">
       <mat-label>Senha atual <span class="obrigatorio">*</span></mat-label>
-      <input type="text" formControlName="senhaAtual" matInput [errorStateMatcher]="matcher"
+      <input type="password" formControlName="senhaAtual" matInput [errorStateMatcher]="matcher"
         placeholder="Informe a sua senha atual">
       <mat-error *ngIf="formGroup.get('senhaAtual').getError('required')">
         {{getMensagemCampoObrigatorio('Senha Atual')}}
@@ -14,7 +15,7 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Nova Senha <span class="obrigatorio">*</span></mat-label>
-      <input type="text" formControlName="novaSenha" matInput [errorStateMatcher]="matcher"
+      <input type="password" formControlName="novaSenha" matInput [errorStateMatcher]="matcher"
         placeholder="Informe a sua nova senha">
       <mat-error *ngIf="formGroup.get('novaSenha').getError('required')">
         {{getMensagemCampoObrigatorio('Nova Senha')}}

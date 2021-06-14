@@ -10,7 +10,7 @@ import { ErrorInterceptor } from './shared/interceptors/error.interceptor';
 import { ProdutoService } from './shared/services/produto.service';
 import { CategoriaService } from './shared/services/categoria.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,8 +40,12 @@ import { CarrinhoDeComprasComponent } from './components/carrinho-de-compras/car
 import { EscolherEnderecoComponent } from './components/escolher-endereco/escolher-endereco.component';
 import { CategoriaInputComponent } from './components/categoria-input/categoria-input.component';
 import { RelatorioComponent } from './components/relatorio/relatorio.component';
+import { ExcluirContaComponent } from './components/excluir-conta/excluir-conta.component';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
+registerLocaleData(localePt, 'pt-BR');
 
 @NgModule({
   declarations: [
@@ -59,6 +63,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     EscolherEnderecoComponent,
     CategoriaInputComponent,
     RelatorioComponent,
+    ExcluirContaComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +94,14 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     { provide: HTTP_INTERCEPTORS, useClass: TokenJwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR',
+    },
+    {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: 'BRL',
+    },
   ],
   bootstrap: [AppComponent],
 })

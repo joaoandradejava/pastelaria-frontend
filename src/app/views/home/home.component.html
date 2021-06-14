@@ -7,10 +7,8 @@
     </ul>
   </div>
 
-
-  {{categoriaSelecionada | json}}
   <div class="card-produtos">
-    <app-card-produto   *ngFor="let produto of produtoModelPaginatio?.content" [produto]="produto"></app-card-produto>
+    <app-card-produto *ngFor="let produto of produtoModelPaginatio?.content" [produto]="produto"></app-card-produto>
     <mat-paginator [length]="pageEvent.length" [pageSize]="pageEvent.pageSize" [pageSizeOptions]="[6]"
       (page)="onChangePage($event)">
     </mat-paginator>

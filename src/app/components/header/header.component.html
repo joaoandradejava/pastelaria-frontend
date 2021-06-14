@@ -21,23 +21,16 @@
             <img src="../../../assets/images/person.png" />
             {{getClienteAutenticado().nome}}{{getClienteAutenticado().isAdmin? '(Admin)': ''}}</button>
           <mat-menu #beforeMenu="matMenu" xPosition="before">
-            <button mat-menu-item [routerLink]="['/editar-dados']" routerLinkActive="router-link-active">
-              <img src="../../../assets/images/edit-profile.png" alt=""> Editar Meus Dados</button>
-            <button mat-menu-item [routerLink]="['/meus-enderecos']" routerLinkActive="router-link-active">
-              <img src="../../../assets/images/gps.png" alt=""> Meus endereços</button>
-            <button mat-menu-item [routerLink]="['/meus-pedidos']" routerLinkActive="router-link-active">
-              <img src="../../../assets/images/pedido.png" alt=""> Meus pedidos</button>
-            <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/produtos']" routerLinkActive="router-link-active">
-              <img src="../../../assets/images/produto.png" alt=""> Produtos</button>
-            <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/categorias']"
+            <button mat-menu-item [routerLink]="[opcao.url]" *ngFor="let opcao of opcoesComum"
               routerLinkActive="router-link-active">
-              <img src="../../../assets/images/category.png" alt=""> Categorias</button>
-            <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/pedidos-admin']"
-              routerLinkActive="router-link-active">
-              <img src="../../../assets/images/pedidoCliente.png" alt=""> Pedidos dos Clientes</button>
-            <button mat-menu-item *ngIf="isAdmin()" [routerLink]="['/grafico-produto-mais-vendidos']"
-              routerLinkActive="router-link-active">
-              <img src="../../../assets/images/chart.png" alt=""> Gráfico dos Produtos Mais Vendidos</button>
+              <img [src]="opcao.avatarUrl" alt="">{{opcao.nome}}</button>
+
+            <div *ngIf="isAdmin()">
+              <button mat-menu-item *ngFor="let opcao of opcoesAdmin" [routerLink]="[opcao.url]"
+                routerLinkActive="router-link-active">
+                <img [src]="opcao.avatarUrl" alt="">{{opcao.nome}}</button>
+            </div>
+
             <button mat-menu-item (click)="sair()"> <img src="../../../assets/images/exit.png" />
               Sair</button>
           </mat-menu>

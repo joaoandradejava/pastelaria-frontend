@@ -4,12 +4,12 @@
     <div class="card-pedido" [routerLink]="['/pedido', pedido.id]"
     routerLinkActive="router-link-active"  *ngFor="let pedido of pedidoModelPagination?.content" >
       <div class="card-pedido-data">
-        <span>{{pedido?.data}}</span>
+        <span>{{pedido?.data | date}}</span>
       </div>
       <div class="card-pedido-conteudo">
         <span>Valor total: {{pedido?.valorTotal | currency}}</span><br>
-        <span>Situação do pedido: {{pedido?.situacaoPedido}}</span><br>
-        <span>Situação do pagamento: {{pedido?.pagamento.situacaoPagamento}}</span>
+        <span>Situação do pedido: {{getValorSituacaoPedido(pedido?.situacaoPedido)}}</span><br>
+        <span>Situação do pagamento: {{getValorSituacaoPagamento(pedido?.pagamento.situacaoPagamento)}}</span>
       </div>
     </div>
   </div>

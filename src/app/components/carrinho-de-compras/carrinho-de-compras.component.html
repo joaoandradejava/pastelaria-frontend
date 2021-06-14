@@ -29,8 +29,8 @@
             </td>
             <td>{{produto?.preco * produto?.quantidade | currency}}</td>
           </tr>
-          <tr>
-            <td colspan="4"  style="font-size: 1.5em; text-align: end;font-weight: bold;">Valor total:</td>
+          <tr class="valor-carrinho">
+            <td colspan="4" style="font-size: 1.5em; text-align: end;font-weight: bold;">Valor total:</td>
             <td colspan="1" style="font-size: 1.5em;">{{valorTotal() | currency}}</td>
           </tr>
         </tbody>

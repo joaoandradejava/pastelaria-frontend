@@ -33,14 +33,14 @@
     <span class="espaco-entre-infos">{{pedidoFullModel?.id}}</span>
 
     <span class="titulo-info">Data do pedido</span>
-    <span>{{pedidoFullModel?.data}}</span>
+    <span>{{pedidoFullModel?.data | date}}</span>
   </div>
 
   <div class="nova-info">
     <span class="titulo-info">Status do Pedido</span>
-    <span class="espaco-entre-infos">{{pedidoFullModel?.situacaoPedido}}</span>
+    <span class="espaco-entre-infos">{{getValorSituacaoPedido(pedidoFullModel?.situacaoPedido)}}</span>
 
     <span class="titulo-info">Situação do Pagamento</span>
-    <span>{{pedidoFullModel?.pagamento.situacaoPagamento}}</span>
+    <span>{{getValorSituacaoPagamento(pedidoFullModel?.pagamento.situacaoPagamento)}}</span>
   </div>
 </div>

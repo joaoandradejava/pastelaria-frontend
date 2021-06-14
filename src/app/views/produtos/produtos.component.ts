@@ -1,3 +1,4 @@
+import { EstatisticaService } from './../../shared/services/estatistica.service';
 import { ProdutoAdminModelPagination } from './../../shared/models/produto-admin-model-pagination';
 import { ProdutoAcaoAvancadaComponent } from './../../components/produto-acao-avancada/produto-acao-avancada.component';
 import { ProdutoInputComponent } from './../../components/produto-input/produto-input.component';
@@ -10,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { RelatorioComponent } from 'src/app/components/relatorio/relatorio.component';
 
 @Component({
   selector: 'app-produtos',
@@ -26,7 +28,8 @@ export class ProdutosComponent implements OnInit {
     private produtoService: ProdutoService,
     private dialog: MatDialog,
     private snackbarService: SnackbarService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private estatisticaService: EstatisticaService
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +49,18 @@ export class ProdutosComponent implements OnInit {
         this.pageEvent.pageIndex = 0;
         this.buscarTodos();
       });
+  }
+
+  gerarRelatorioDosProdutos(): void {
+    this.estatisticaService.gerarRelatorioDosProdutos().subscribe(data => {
+      this.dialog.open(RelatorioComponent, {
+        data: {
+          nomeDoRelatorio: 'Relatório dos Produtos',
+          base64: data.relatorio
+
+        }
+      })
+    })
   }
 
   openModalNovoProduto(): void {

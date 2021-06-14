@@ -1,3 +1,4 @@
+import { SituacaoPedido } from './../../shared/models/situacao-pedido';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,6 +7,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { PedidoModelPagination } from 'src/app/shared/models/pedido-model-pagination';
 import { PedidoService } from 'src/app/shared/services/pedido.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import { SituacaoPagamento } from 'src/app/shared/models/situacao-pagamento';
 
 @Component({
   selector: 'app-pedidos-admin',
@@ -43,15 +45,21 @@ export class PedidosAdminComponent implements OnInit {
       });
   }
 
+  public getValorSituacaoPedido(value: string): string {
+    return SituacaoPedido[value];
+  }
+
+  public getValorSituacaoPagamento(value: string): string {
+    return SituacaoPagamento[value];
+  }
+
   saiuParaEntrega(pedidoId: number): void {
     this.pedidoService.saiuParaEntrega(pedidoId).subscribe((data) => {
       this.snackbarService.mostrarMensagemSucesso(
         'O status do pedido foi alterado para saiu para entrega',
         5000
       );
-      this.buscarTodos(
-
-      )
+      this.buscarTodos();
     });
   }
 
@@ -61,7 +69,7 @@ export class PedidosAdminComponent implements OnInit {
         'O status do pedido foi alterado para concluido',
         5000
       );
-      this.buscarTodos()
+      this.buscarTodos();
     });
   }
 
@@ -71,7 +79,7 @@ export class PedidosAdminComponent implements OnInit {
         'O status do pedido foi alterado para cancelado',
         5000
       );
-      this.buscarTodos()
+      this.buscarTodos();
     });
   }
 
